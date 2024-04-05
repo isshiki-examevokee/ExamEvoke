@@ -5,5 +5,5 @@ from admin_panel.serializers.batch import BatchSerializer
 
 
 class BatchViewset(viewsets.ModelViewSet):
-    queryset = Batch
+    queryset = Batch.objects.all()
     serializer_class = BatchSerializer

@@ -5,5 +5,5 @@ from admin_panel.serializers.course import CourseSerializer
 
 
 class CourseViewset(viewsets.ModelViewSet):
-    queryset = Course
+    queryset = Course.objects.all()
     serializer_class = CourseSerializer
