@@ -19,4 +19,4 @@ class Course(models.Model):
     course_id = models.IntegerField()
     course_name = models.CharField(max_length=255)
     description = models.TextField()
-    status = models.BooleanField(default=True)
+    active = models.BooleanField(default=True)
