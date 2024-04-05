@@ -19,3 +19,4 @@ class Batch(models.Model):
         on_delete=models.CASCADE,
         help_text="The course to which a batch belongs to",
     )
+    active = models.BooleanField(default=True)
