@@ -1,3 +1,7 @@
-from .courses import CourseViewset
+from .batch import BatchViewset
+from .course import CourseViewset
 
-__all__ = ["CourseViewset"]
+__all__ = [
+    "CourseViewset",
+    "BatchViewset",
+]
