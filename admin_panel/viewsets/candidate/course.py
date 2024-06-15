@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from admin_panel.models.course import Course
-from admin_panel.serializers.course import CourseSerializer
+from admin_panel.models import Course
+from admin_panel.serializers.candidate.course import CourseSerializer
 
 
 class CourseViewset(viewsets.ModelViewSet):

@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from admin_panel.models.course import Course
+from admin_panel.models.candidate.course import Course
 
 
 class Batch(models.Model):

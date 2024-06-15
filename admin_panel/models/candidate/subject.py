@@ -2,10 +2,10 @@ import uuid
 
 from django.db import models
 
-from admin_panel.models.subject import Subject
+from admin_panel.models.candidate.batch import Batch
 
 
-class Topic(models.Model):
+class Subject(models.Model):
     id = models.UUIDField(
         primary_key=True,
         editable=False,
@@ -15,8 +15,8 @@ class Topic(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     batch = models.ForeignKey(
-        Subject,
+        Batch,
         on_delete=models.CASCADE,
-        help_text="The subject to which a topic belongs to",
+        help_text="The batch to which a subject belongs to",
     )
     active = models.BooleanField(default=True)

@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from admin_panel.models.organization import Organization
-from admin_panel.serializers.organization import OrganizationSerializer
+from admin_panel.models import Organization
+from admin_panel.serializers.candidate.organization import OrganizationSerializer
 
 
 class OrganizationViewset(viewsets.ModelViewSet):
