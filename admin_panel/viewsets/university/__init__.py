@@ -3,7 +3,7 @@ from .course import CourseViewset
 from .organization import OrganizationViewset
 from .subject import SubjectViewset
 from .topic import TopicViewset
-from .user import UserViewset
+from ..user.employee import EmployeeViewset
 
 __all__ = [
     "CourseViewset",
@@ -11,5 +11,5 @@ __all__ = [
     "OrganizationViewset",
     "SubjectViewset",
     "TopicViewset",
-    "UserViewset",
+    "EmployeeViewset",
 ]

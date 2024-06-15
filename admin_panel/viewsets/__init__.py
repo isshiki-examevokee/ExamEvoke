@@ -1,1 +1,2 @@
-from .candidate import * # noqa
+from .university import * # noqa
+from .user import * # noqa

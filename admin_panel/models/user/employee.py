@@ -3,12 +3,12 @@ import uuid
 from django.db import models
 
 
-class UserRole(models.TextChoices):
+class EmployeeRole(models.TextChoices):
     EVALUATOR = "EVALUATOR"
     SCANNER = "SCANNER"
 
 
-class User(models.Model):
+class Employee(models.Model):
     id = models.UUIDField(
         primary_key=True,
         editable=False,
@@ -20,7 +20,7 @@ class User(models.Model):
     phone_number = models.CharField(max_length=255)
     active = models.BooleanField(default=True)
     role = models.CharField(
-        choices=UserRole.choices,
+        choices=EmployeeRole.choices,
         max_length=255,
-        default=UserRole.EVALUATOR,
+        default=EmployeeRole.EVALUATOR,
     )

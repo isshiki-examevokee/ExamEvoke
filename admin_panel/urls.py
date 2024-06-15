@@ -7,7 +7,7 @@ from admin_panel.viewsets import (
     OrganizationViewset,
     SubjectViewset,
     TopicViewset,
-    UserViewset,
+    EmployeeViewset,
 )
 
 router = routers.DefaultRouter()
@@ -16,5 +16,5 @@ router.register(r"batch", BatchViewset, basename="batch")
 router.register(r"organization", OrganizationViewset, basename="organization")
 router.register(r"subject", SubjectViewset, basename="subject")
 router.register(r"topic", TopicViewset, basename="topic")
-router.register(r"user", UserViewset, basename="user")
+router.register(r"user", EmployeeViewset, basename="user")
 urlpatterns = [path("", include(router.urls))]

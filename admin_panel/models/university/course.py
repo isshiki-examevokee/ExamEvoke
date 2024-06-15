@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from admin_panel.models.candidate.organization import Organization
+from admin_panel.models.university.organization import Organization
 
 
 class Course(models.Model):
