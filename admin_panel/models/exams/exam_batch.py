@@ -4,6 +4,7 @@ from django.db import models
 
 from admin_panel.models.exams.exam import Exam
 
+
 class BatchMode(models.Choices):
     CENTER_BASED_TEST = "CENTER_BASED_TEST"
     INTERNET_BASED_TEST = "INTERNET_BASED_TEST"
@@ -11,6 +12,7 @@ class BatchMode(models.Choices):
     PAPER_BASED_TEST_OSM = "PAPER_BASED_TEST_OSM"
     PAPER_BASED_TEST_OMR = "PAPER_BASED_TEST_OMR"
     PAPER_BASED_TEST_ATTACHMENT = "PAPER_BASED_TEST_ATTACHMENT"
+
 
 class ExamBatch(models.Model):
     id = models.UUIDField(
