@@ -4,6 +4,13 @@ from django.db import models
 
 from admin_panel.models.exams.exam import Exam
 
+class BatchMode(models.Choices):
+    CENTER_BASED_TEST = "CENTER_BASED_TEST"
+    INTERNET_BASED_TEST = "INTERNET_BASED_TEST"
+    INTERNET_BASED_TEST_HYBRID = "INTERNET_BASED_TEST_HYBRID"
+    PAPER_BASED_TEST_OSM = "PAPER_BASED_TEST_OSM"
+    PAPER_BASED_TEST_OMR = "PAPER_BASED_TEST_OMR"
+    PAPER_BASED_TEST_ATTACHMENT = "PAPER_BASED_TEST_ATTACHMENT"
 
 class ExamBatch(models.Model):
     id = models.UUIDField(
@@ -25,9 +32,10 @@ class ExamBatch(models.Model):
     end = models.DateTimeField(blank=True, null=True)
     details = models.TextField()
     mode = models.CharField(
+        choices=BatchMode.choices,
         blank=False,
         null=False,
-        max_length=255,   
+        max_length=255,
     )
     start_date = models.DateField(
         blank=True,
