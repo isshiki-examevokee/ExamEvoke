@@ -2,14 +2,15 @@ import os
 import csv
 import uuid
 import django
-from django.conf import settings
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'examevoke.settings')
-django.setup()
 
 from admin_panel.models.questions.question import Question
 from admin_panel.models.university.subject import Subject
 from admin_panel.models.university.topic import Topic
+
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'examevoke.settings')
+django.setup()
 
 
 def handle():
