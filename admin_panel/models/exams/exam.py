@@ -3,11 +3,11 @@ import uuid
 from django.db import models
 
 
-class ExamType(models.Choices):
+class ExamType(models.TextChoices):
     SEMESTER = "SEMESTER"
 
 
-class ExamDifficulty(models.Choices):
+class ExamDifficulty(models.TextChoices):
     EASY = "EASY"
     MEDIUM = "MEDIUM"
     HARD = "HARD"

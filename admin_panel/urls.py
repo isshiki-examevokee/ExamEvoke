@@ -9,6 +9,7 @@ from admin_panel.viewsets import (
     TopicViewset,
     EmployeeViewset,
     StudentViewset,
+    CustomAuthTokenView,
     QuestionViewset,
     ExamViewset,
     ExamBatchViewset
@@ -26,3 +27,4 @@ router.register(r"question", QuestionViewset, basename="question")
 router.register(r"exam", ExamViewset, basename="exam")
 router.register(r"exam_batch", ExamBatchViewset, basename="exam_batch")
 urlpatterns = [path("", include(router.urls))]
+urlpatterns += [path('api-token-auth/', CustomAuthTokenView.as_view())]
