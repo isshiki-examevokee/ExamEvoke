@@ -11,7 +11,6 @@ class Batch(models.Model):
         editable=False,
         default=uuid.uuid4,
     )
-    serial_no = models.IntegerField()
     name = models.CharField(max_length=255)
     description = models.TextField()
     course = models.ForeignKey(
