@@ -2,6 +2,8 @@ import uuid
 
 from django.db import models
 
+from admin_panel.models.university.organization import Organization
+
 
 class ExamType(models.TextChoices):
     SEMESTER = "SEMESTER"
@@ -20,6 +22,11 @@ class Exam(models.Model):
         default=uuid.uuid4,
     )
     name = models.CharField(blank=False, null=False, max_length=255)
+    organization = models.ForeignKey(
+        Organization,
+        related_name="exams",
+        on_delete=models.CASCADE
+    )
     type = models.CharField(
         blank=False,
         null=False,
