@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from admin_panel.models.university.batch import Batch
+from admin_panel.models.university.subject import Subject
 
 
 class Topic(models.Model):
@@ -13,8 +13,8 @@ class Topic(models.Model):
     )
     name = models.CharField(max_length=255)
     description = models.TextField()
-    batch = models.ForeignKey(
-        Batch,
+    subject = models.ForeignKey(
+        Subject,
         on_delete=models.CASCADE,
         help_text="The subject to which a topic belongs to",
     )
