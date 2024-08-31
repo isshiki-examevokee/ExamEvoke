@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from admin_panel.models import Subject
-from admin_panel.serializers.university.batch import BatchSerializer
+from admin_panel.serializers.university.organization import OrganizationSerializer
 
 
 class SubjectSerializer(serializers.ModelSerializer):
@@ -11,7 +11,7 @@ class SubjectSerializer(serializers.ModelSerializer):
 
 
 class SubjectResponseSerializer(serializers.ModelSerializer):
-    batch = BatchSerializer()
+    organization = OrganizationSerializer()
 
     class Meta:
         model = Subject
