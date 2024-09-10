@@ -4,6 +4,7 @@ from django.db import models
 from admin_panel.models.exams.exam import Exam
 from admin_panel.models.exams.exam_batch import ExamBatch
 from admin_panel.models.questions.question import Question
+from admin_panel.models.university.organization import Organization
 from admin_panel.models.user.student import Student
 
 
@@ -21,6 +22,10 @@ class ExamBatchMapping(models.Model):
     exambatch = models.ForeignKey(
         ExamBatch,
         related_name="exambatchesbatches",
+        on_delete=models.CASCADE,
+    )
+    organization = models.ForeignKey(
+        Organization,
         on_delete=models.CASCADE,
     )
 
@@ -41,6 +46,10 @@ class ExamQuestionMapping(models.Model):
         related_name="examquestionsexambatch",
         on_delete=models.CASCADE,
     )
+    organization = models.ForeignKey(
+        Organization,
+        on_delete=models.CASCADE,
+    )
 
 
 class ExamBatchStudentMapping(models.Model):
@@ -57,5 +66,9 @@ class ExamBatchStudentMapping(models.Model):
     exambatch = models.ForeignKey(
         ExamBatch,
         related_name="exambatchbatches",
+        on_delete=models.CASCADE,
+    )
+    organization = models.ForeignKey(
+        Organization,
         on_delete=models.CASCADE,
     )
