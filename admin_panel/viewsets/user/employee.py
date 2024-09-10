@@ -1,8 +1,11 @@
 from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 
 from admin_panel.models import Employee
+from admin_panel.models.user.employee import EmployeeRole
 from admin_panel.serializers.user.employee import (
     EmployeeSerializer,
     EmployeeResponseSerializer,
@@ -20,3 +23,8 @@ class EmployeeViewset(viewsets.ModelViewSet):
         if self.action in ['list', 'retrieve']:
             return EmployeeResponseSerializer
         return EmployeeSerializer
+
+    @action(detail=False, methods=['get'])
+    def get_employee_roles(self, request, pk=None):
+        roles = [role.value for role in EmployeeRole]
+        return Response(roles)
