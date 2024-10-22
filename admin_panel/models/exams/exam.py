@@ -14,6 +14,7 @@ class ExamDifficulty(models.TextChoices):
     MEDIUM = "MEDIUM"
     HARD = "HARD"
 
+
 class ExamModeChoices(models.TextChoices):
     CENTER_BASED_TEST = "CENTER_BASED_TEST"
 

@@ -13,6 +13,7 @@ class StudentSerializer(serializers.ModelSerializer):
 class StudentResponseSerializer(serializers.ModelSerializer):
 
     batch = BatchResponseSerializer()
+
     class Meta:
         model = Student
         fields = "__all__"
