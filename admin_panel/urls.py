@@ -16,9 +16,9 @@ from admin_panel.viewsets import (
 )
 
 from admin_panel.viewset import (
-    EmployeeViewset,
     StudentViewset,
     CustomAuthTokenView,
+    EmployeeViewset,
 )
 
 router = routers.DefaultRouter()

@@ -1,8 +1,12 @@
 from .students.viewsets import (
     StudentViewset,
-    EmployeeViewset,
-    CustomAuthTokenView
 )
+
+from .users.viewsets import (
+    EmployeeViewset,
+    CustomAuthTokenView,
+)
+
 
 __all__ = [
     "StudentViewset",
