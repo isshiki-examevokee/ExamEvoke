@@ -2,7 +2,9 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.authtoken.views import ObtainAuthToken
 from django.contrib.auth.models import User
-from admin_panel.serializers.user.auth import CustomAuthTokenSerializer
+
+from admin_panel.students.serializers.auth import CustomAuthTokenSerializer
+# from admin_panel.serializers.user.auth import CustomAuthTokenSerializer
 
 
 class CustomAuthTokenView(ObtainAuthToken):

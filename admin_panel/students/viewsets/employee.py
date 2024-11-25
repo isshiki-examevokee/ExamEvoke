@@ -3,13 +3,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+from admin_panel.students.models.employee import Employee, EmployeeRole
+from admin_panel.students.serializers.employee import EmployeeResponseSerializer, EmployeeSerializer
 
-from admin_panel.models import Employee
-from admin_panel.models.user.employee import EmployeeRole
-from admin_panel.serializers.user.employee import (
-    EmployeeSerializer,
-    EmployeeResponseSerializer,
-)
+
 
 
 class EmployeeViewset(viewsets.ModelViewSet):
