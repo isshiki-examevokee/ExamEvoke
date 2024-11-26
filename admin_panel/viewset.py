@@ -19,6 +19,12 @@ from .batches.viewset import (
     BatchViewset
 )
 
+from .topics.viewset import (
+    TopicViewset
+)
+
+
+
 __all__ = [
     "StudentViewset",
     "EmployeeViewset",
@@ -26,4 +32,5 @@ __all__ = [
     "CourseViewset",
     "SubjectViewset",
     "BatchViewset",
+    "TopicViewset",
 ]

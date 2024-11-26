@@ -3,7 +3,6 @@ from rest_framework import routers
 
 from admin_panel.viewsets import (
     OrganizationViewset,
-    TopicViewset,
     QuestionViewset,
     ExamViewset,
     ExamBatchViewset,
@@ -19,6 +18,7 @@ from admin_panel.viewset import (
     CourseViewset,
     SubjectViewset,
     BatchViewset,
+    TopicViewset,
 )
 
 router = routers.DefaultRouter()

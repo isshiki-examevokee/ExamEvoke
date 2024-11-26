@@ -1,7 +1,8 @@
-from rest_framework import serializers
-
-from admin_panel.models import Topic
 from admin_panel.subjects.serializer import SubjectSerializer
+from admin_panel.topics.model import Topic
+
+
+from rest_framework import serializers
 
 
 class TopicSerializer(serializers.ModelSerializer):

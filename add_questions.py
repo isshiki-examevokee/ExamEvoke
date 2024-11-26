@@ -6,7 +6,7 @@ import django
 
 from admin_panel.models.questions.question import Question
 from admin_panel.subjects.model import Subject
-from admin_panel.models.university.topic import Topic
+from admin_panel.topics.model import Topic
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'examevoke.settings')
