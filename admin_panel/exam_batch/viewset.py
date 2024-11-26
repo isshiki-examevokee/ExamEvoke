@@ -2,9 +2,23 @@ from django.db import transaction
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status, viewsets
+from rest_framework.decorators import action
 from rest_framework.response import Response
-from admin_panel.exam_batch.model import ExamBatch
-from admin_panel.exam_batch.serializer import ExamBatchCreateSerializer, ExamBatchResponseSerializer
+from admin_panel.exam_batch.model import (
+    ExamBatch,
+    ExamBatchSettings,
+    InternetBasedSettings,
+    PaperBasedSettings,
+    EvaluatorSettings,
+    ModeratorSettings,
+    ScannerSettings,
+    SelectionCriteria,
+)
+from admin_panel.exam_batch.serializer import (
+    ExamBatchCreateSerializer,
+    ExamBatchResponseSerializer,
+    ExamBatchSettingsRequestSerializer,
+)
 from admin_panel.exam_batch_student.model import ExamStudent
 
 
@@ -65,3 +79,85 @@ class ExamBatchViewSet(viewsets.ModelViewSet):
             response_serializer.data,
             status=status.HTTP_201_CREATED,
         )
+
+    @swagger_auto_schema(
+        tags=['Exam Batches'],
+        operation_summary="Update exam batch settings",
+        operation_description="Update all settings for an exam batch including mode specific settings",
+        request_body=ExamBatchSettingsRequestSerializer,
+        responses={
+            200: "Settings updated successfully",
+            400: "Bad Request - Invalid data or validation error",
+            404: "Not Found - Exam batch does not exist"
+        }
+    )
+    @action(detail=True, methods=['put'], url_path='settings')
+    @transaction.atomic
+    def update_settings(self, request, pk=None):
+        exam_batch = self.get_object()
+        
+        # Initialize serializer with exam_batch context
+        serializer = ExamBatchSettingsRequestSerializer(
+            data=request.data,
+            context={'exam_batch': exam_batch}
+        )
+        serializer.is_valid(raise_exception=True)
+        data = serializer.validated_data
+
+        # Update exam batch schedule
+        for field in ['start_date', 'end_date', 'start_time', 'end_time',
+                     'evaluation_start_date', 'evaluation_end_date',
+                     'evaluation_start_time', 'evaluation_end_time']:
+            if field in data:
+                setattr(exam_batch, field, data[field])
+        exam_batch.save()
+
+        # Update common settings
+        if common_settings := data.get('common_settings'):
+            ExamBatchSettings.objects.update_or_create(
+                exam_batch=exam_batch,
+                defaults=common_settings
+            )
+
+        # Update mode specific settings
+        if exam_batch.mode in ['INTERNET_BASED', 'INTERNET_BASED_HYBRID']:
+            if internet_settings := data.get('internet_settings'):
+                InternetBasedSettings.objects.update_or_create(
+                    exam_batch=exam_batch,
+                    defaults=internet_settings
+                )
+
+        if exam_batch.mode in ['PAPER_BASED_OSM', 'PAPER_BASED_OMR', 'PAPER_BASED_ATTACHMENT']:
+            if paper_settings := data.get('paper_settings'):
+                PaperBasedSettings.objects.update_or_create(
+                    exam_batch=exam_batch,
+                    defaults=paper_settings
+                )
+
+            # Update evaluation related settings
+            if evaluator_settings := data.get('evaluator_settings'):
+                EvaluatorSettings.objects.update_or_create(
+                    exam_batch=exam_batch,
+                    defaults=evaluator_settings
+                )
+
+            if moderator_settings := data.get('moderator_settings'):
+                ModeratorSettings.objects.update_or_create(
+                    exam_batch=exam_batch,
+                    defaults=moderator_settings
+                )
+
+            if scanner_settings := data.get('scanner_settings'):
+                ScannerSettings.objects.update_or_create(
+                    exam_batch=exam_batch,
+                    defaults=scanner_settings
+                )
+
+        # Update selection criteria
+        if selection_criteria := data.get('selection_criteria'):
+            SelectionCriteria.objects.update_or_create(
+                exam_batch=exam_batch,
+                defaults=selection_criteria
+            )
+
+        return Response({"message": "Settings updated successfully"})
