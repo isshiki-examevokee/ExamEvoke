@@ -1,5 +1,4 @@
 import uuid
-
 from django.db import models
 
 from admin_panel.subjects.model import Subject

@@ -1,6 +1,8 @@
+from admin_panel.questions.model import Question
+
+
 from rest_framework import serializers
 
-from admin_panel.models import Question
 from admin_panel.subjects.serializer import SubjectSerializer
 from admin_panel.topics.serializer import TopicSerializer
 
