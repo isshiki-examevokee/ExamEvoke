@@ -1,4 +1,4 @@
-from .batch import BatchViewset
+from ...batches.viewset import BatchViewset
 from ...courses.viewset import CourseViewset
 from .organization import OrganizationViewset
 from .subject import SubjectViewset

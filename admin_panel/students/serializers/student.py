@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from admin_panel.serializers.university.batch import BatchResponseSerializer
+from admin_panel.batches.serializer import BatchResponseSerializer
 from admin_panel.students.models.student import Student
 
 

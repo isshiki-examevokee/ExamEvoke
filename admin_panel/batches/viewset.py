@@ -1,7 +1,12 @@
-from rest_framework import viewsets, filters
+from admin_panel.batches.model import Batch
+from admin_panel.batches.serializer import (
+    BatchResponseSerializer,
+    BatchSerializer,
+)
+
+
 from django_filters.rest_framework import DjangoFilterBackend
-from admin_panel.models import Batch
-from admin_panel.serializers.university.batch import BatchResponseSerializer, BatchSerializer
+from rest_framework import filters, viewsets
 
 
 class BatchViewset(viewsets.ModelViewSet):
