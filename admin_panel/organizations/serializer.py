@@ -1,6 +1,7 @@
-from rest_framework import serializers
+from admin_panel.organizations.model import Organization
 
-from admin_panel.models import Organization
+
+from rest_framework import serializers
 
 
 class OrganizationSerializer(serializers.ModelSerializer):

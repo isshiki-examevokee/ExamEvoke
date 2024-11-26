@@ -2,7 +2,6 @@ from django.urls import include, path
 from rest_framework import routers
 
 from admin_panel.viewsets import (
-    OrganizationViewset,
     QuestionViewset,
     ExamViewset,
     ExamBatchViewset,
@@ -19,6 +18,7 @@ from admin_panel.viewset import (
     SubjectViewset,
     BatchViewset,
     TopicViewset,
+    OrganizationViewset,
 )
 
 router = routers.DefaultRouter()

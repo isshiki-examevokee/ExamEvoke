@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from admin_panel.models import Exam
-from admin_panel.serializers.university.organization import OrganizationSerializer
+from admin_panel.organizations.serializer import OrganizationSerializer
 
 
 class ExamSerializer(serializers.ModelSerializer):

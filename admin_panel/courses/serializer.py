@@ -3,7 +3,7 @@ from admin_panel.courses.model import Course
 
 from rest_framework import serializers
 
-from admin_panel.serializers.university.organization import OrganizationSerializer
+from admin_panel.organizations.serializer import OrganizationSerializer
 
 
 class CourseSerializer(serializers.ModelSerializer):

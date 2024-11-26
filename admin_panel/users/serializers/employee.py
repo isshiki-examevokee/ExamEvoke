@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from admin_panel.serializers.university.organization import OrganizationSerializer
+from admin_panel.organizations.serializer import OrganizationSerializer
 from admin_panel.users.models.employee import Employee
 
 

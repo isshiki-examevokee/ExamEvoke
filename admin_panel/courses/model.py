@@ -1,4 +1,4 @@
-from admin_panel.models.university.organization import Organization
+from admin_panel.organizations.model import Organization
 
 
 from django.db import models
