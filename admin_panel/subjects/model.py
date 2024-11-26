@@ -1,8 +1,10 @@
-import uuid
+from admin_panel.models.university.organization import Organization
+
 
 from django.db import models
 
-from admin_panel.models.university.organization import Organization
+
+import uuid
 
 
 class Subject(models.Model):
