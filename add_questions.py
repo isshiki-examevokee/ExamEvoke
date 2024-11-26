@@ -4,7 +4,7 @@ import uuid
 import django
 
 
-from admin_panel.models.questions.question import Question
+from admin_panel.questions.model import Question
 from admin_panel.subjects.model import Subject
 from admin_panel.topics.model import Topic
 

@@ -1,8 +1,8 @@
 from django.urls import include, path
 from rest_framework import routers
 
+from admin_panel.questions.viewset import QuestionViewset
 from admin_panel.viewsets import (
-    QuestionViewset,
     ExamViewset,
     ExamBatchViewset,
     ExamQuestionMappingViewSet,
