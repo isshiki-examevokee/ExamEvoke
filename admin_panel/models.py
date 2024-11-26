@@ -1,0 +1,1 @@
+from .exams.model import *  # noqa
