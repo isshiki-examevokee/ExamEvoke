@@ -3,7 +3,7 @@ import uuid
 from django.db import models
 
 from admin_panel.subjects.model import Subject
-from admin_panel.models.university.topic import Topic
+from admin_panel.topics.model import Topic
 
 
 class QuestionType(models.Choices):

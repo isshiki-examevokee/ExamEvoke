@@ -1,8 +1,10 @@
-import uuid
+from admin_panel.subjects.model import Subject
+
 
 from django.db import models
 
-from admin_panel.subjects.model import Subject
+
+import uuid
 
 
 class Topic(models.Model):
