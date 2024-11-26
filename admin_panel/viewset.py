@@ -32,7 +32,9 @@ from .questions.viewset import (
 )
 
 
-
+from .exams.viewset import (
+    ExamViewSet
+)
 
 
 __all__ = [
@@ -45,4 +47,5 @@ __all__ = [
     "TopicViewset",
     "OrganizationViewset",
     "QuestionViewset",
+    "ExamViewSet",
 ]
