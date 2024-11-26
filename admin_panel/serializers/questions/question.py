@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from admin_panel.models import Question
-from admin_panel.serializers.university.subject import SubjectSerializer
+from admin_panel.subjects.serializer import SubjectSerializer
 from admin_panel.serializers.university.topic import TopicSerializer
 
 

@@ -1,7 +1,7 @@
 from ...batches.viewset import BatchViewset
 from ...courses.viewset import CourseViewset
 from .organization import OrganizationViewset
-from .subject import SubjectViewset
+from ...subjects.viewset import SubjectViewset
 from .topic import TopicViewset
 # from ..user.employee import EmployeeViewset
 

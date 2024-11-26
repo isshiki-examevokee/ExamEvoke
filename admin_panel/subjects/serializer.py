@@ -1,6 +1,8 @@
+from admin_panel.subjects.model import Subject
+
+
 from rest_framework import serializers
 
-from admin_panel.models import Subject
 from admin_panel.serializers.university.organization import OrganizationSerializer
 
 

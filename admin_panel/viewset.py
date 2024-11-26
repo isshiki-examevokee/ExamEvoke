@@ -11,10 +11,19 @@ from .courses.viewset import (
     CourseViewset,
 )
 
+from .subjects.viewset import (
+    SubjectViewset
+)
+
+from .batches.viewset import (
+    BatchViewset
+)
 
 __all__ = [
     "StudentViewset",
     "EmployeeViewset",
     "CustomAuthTokenView",
     "CourseViewset",
+    "SubjectViewset",
+    "BatchViewset",
 ]

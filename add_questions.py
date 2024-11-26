@@ -5,7 +5,7 @@ import django
 
 
 from admin_panel.models.questions.question import Question
-from admin_panel.models.university.subject import Subject
+from admin_panel.subjects.model import Subject
 from admin_panel.models.university.topic import Topic
 
 

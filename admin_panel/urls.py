@@ -1,10 +1,8 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from admin_panel.batches.viewset import BatchViewset
 from admin_panel.viewsets import (
     OrganizationViewset,
-    SubjectViewset,
     TopicViewset,
     QuestionViewset,
     ExamViewset,
@@ -19,7 +17,8 @@ from admin_panel.viewset import (
     CustomAuthTokenView,
     EmployeeViewset,
     CourseViewset,
-    
+    SubjectViewset,
+    BatchViewset,
 )
 
 router = routers.DefaultRouter()
