@@ -1,5 +1,5 @@
 from .batch import BatchViewset
-from .course import CourseViewset
+from ...courses.viewset import CourseViewset
 from .organization import OrganizationViewset
 from .subject import SubjectViewset
 from .topic import TopicViewset

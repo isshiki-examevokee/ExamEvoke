@@ -1,6 +1,8 @@
+from admin_panel.courses.model import Course
+
+
 from rest_framework import serializers
 
-from admin_panel.models import Course
 from admin_panel.serializers.university.organization import OrganizationSerializer
 
 
