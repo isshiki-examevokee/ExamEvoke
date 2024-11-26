@@ -3,8 +3,8 @@ from rest_framework import routers
 
 from admin_panel.questions.viewset import QuestionViewset
 
+from admin_panel.students.viewset import StudentViewset
 from admin_panel.viewset import (
-    StudentViewset,
     CustomAuthTokenView,
     EmployeeViewset,
     CourseViewset,

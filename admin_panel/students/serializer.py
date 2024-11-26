@@ -1,7 +1,8 @@
-from rest_framework import serializers
-
 from admin_panel.batches.serializer import BatchResponseSerializer
 from admin_panel.students.models.student import Student
+
+
+from rest_framework import serializers
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -13,6 +14,7 @@ class StudentSerializer(serializers.ModelSerializer):
 class StudentResponseSerializer(serializers.ModelSerializer):
 
     batch = BatchResponseSerializer()
+
     class Meta:
         model = Student
         fields = "__all__"

@@ -1,4 +1,4 @@
-from .students.viewsets import (
+from .students.viewset import (
     StudentViewset,
 )
 

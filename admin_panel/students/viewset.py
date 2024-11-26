@@ -1,10 +1,11 @@
-from rest_framework import viewsets, filters
-from django_filters.rest_framework import DjangoFilterBackend
-from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
-
 from admin_panel.students.models.student import Student
-from admin_panel.students.serializers.student import StudentResponseSerializer, StudentSerializer
+from admin_panel.students.serializer import StudentResponseSerializer, StudentSerializer
+
+
+from django_filters.rest_framework import DjangoFilterBackend
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework import filters, viewsets
 
 
 class StudentViewset(viewsets.ModelViewSet):
