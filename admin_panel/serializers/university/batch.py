@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from admin_panel.models import Batch
-from admin_panel.serializers.university.course import CourseSerializer
+from admin_panel.courses.serializer import CourseSerializer
 
 
 class BatchSerializer(serializers.ModelSerializer):
