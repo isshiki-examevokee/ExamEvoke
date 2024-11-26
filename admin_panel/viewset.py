@@ -31,10 +31,12 @@ from .questions.viewset import (
     QuestionViewset
 )
 
-
 from .exams.viewset import (
     ExamViewSet
 )
+
+from .exam_batch.viewset import ExamBatchViewSet
+from .exam_batch_student.viewset import ExamStudentViewSet
 
 
 __all__ = [
@@ -48,4 +50,6 @@ __all__ = [
     "OrganizationViewset",
     "QuestionViewset",
     "ExamViewSet",
+    "ExamBatchViewSet",
+    "ExamStudentViewSet",
 ]
