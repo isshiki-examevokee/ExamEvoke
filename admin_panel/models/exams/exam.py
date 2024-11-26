@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 
-from admin_panel.models.university.organization import Organization
+from admin_panel.organizations.model import Organization
 
 
 class ExamType(models.TextChoices):

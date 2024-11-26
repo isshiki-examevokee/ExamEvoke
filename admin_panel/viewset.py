@@ -23,6 +23,10 @@ from .topics.viewset import (
     TopicViewset
 )
 
+from .organizations.viewset import (
+    OrganizationViewset
+)
+
 
 
 __all__ = [
@@ -33,4 +37,5 @@ __all__ = [
     "SubjectViewset",
     "BatchViewset",
     "TopicViewset",
+    "OrganizationViewset",
 ]
