@@ -1,1 +1,5 @@
-from .student import * # noqa
+from .student import StudentViewset # noqa
+
+__all__ = [
+    "StudentViewset"
+]
