@@ -161,3 +161,27 @@ class ExamBatchViewSet(viewsets.ModelViewSet):
             )
 
         return Response({"message": "Settings updated successfully"})
+
+    @swagger_auto_schema(
+        tags=['Exam Batches'],
+        operation_summary="List exam batches",
+        operation_description="Get a list of all exam batches with optional filtering by exam and batch",
+        responses={
+            200: ExamBatchResponseSerializer(many=True),
+            400: "Bad Request - Invalid filter parameters"
+        }
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=['Exam Batches'],
+        operation_summary="Get exam batch details",
+        operation_description="Retrieve detailed information about a specific exam batch",
+        responses={
+            200: ExamBatchResponseSerializer,
+            404: "Not Found - Exam batch does not exist"
+        }
+    )
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
