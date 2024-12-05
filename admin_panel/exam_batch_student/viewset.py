@@ -1,5 +1,3 @@
-
-
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status, viewsets
@@ -20,6 +18,30 @@ class ExamStudentViewSet(viewsets.ModelViewSet):
         if self.action in ['create', 'update', 'partial_update']:
             return ExamStudentSerializer
         return ExamStudentResponseSerializer
+
+    @swagger_auto_schema(
+        tags=['Exam Students'],
+        operation_summary="List exam students",
+        operation_description="Get a list of all exam students with optional filtering by exam batch, student, and exam",
+        responses={
+            200: ExamStudentResponseSerializer(many=True),
+            400: "Bad Request - Invalid filter parameters"
+        }
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=['Exam Students'],
+        operation_summary="Get exam student details",
+        operation_description="Retrieve detailed information about a specific exam student",
+        responses={
+            200: ExamStudentResponseSerializer,
+            404: "Not Found - Exam student does not exist"
+        }
+    )
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(
         tags=['Exam Students'],
