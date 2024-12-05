@@ -77,6 +77,10 @@ class ExamResponseSerializer(serializers.ModelSerializer):
         return obj.exam_batches.count()
 
     def get_student_count(self, obj):
-        return obj.exam_batches.aggregate(
-            total_students=models.Count('exam_students')
-        )['total_students'] or 0
+        return getattr(
+            obj,
+            'student_count',
+            obj.exam_batches.aggregate(
+                total_students=models.Count('exam_students')
+            )['total_students'] or 0
+        )
