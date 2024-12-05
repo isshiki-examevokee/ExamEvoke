@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from admin_panel.exams.model import Exam
 from admin_panel.organizations.serializer import OrganizationSerializer
+from django.db import models
 
 
 class ExamCreateSerializer(serializers.ModelSerializer):
@@ -47,6 +48,8 @@ class ExamSerializer(serializers.ModelSerializer):
 class ExamResponseSerializer(serializers.ModelSerializer):
     """Serializer for reading exam data"""
     organization = OrganizationSerializer(read_only=True)
+    batch_count = serializers.SerializerMethodField()
+    student_count = serializers.SerializerMethodField()
 
     class Meta:
         model = Exam
@@ -64,6 +67,16 @@ class ExamResponseSerializer(serializers.ModelSerializer):
             'total_marks',
             'organization',
             'created_at',
-            'updated_at'
+            'updated_at',
+            'batch_count',
+            'student_count'
         ]
         read_only_fields = ['id', 'created_at', 'updated_at']
+
+    def get_batch_count(self, obj):
+        return obj.exam_batches.count()
+
+    def get_student_count(self, obj):
+        return obj.exam_batches.aggregate(
+            total_students=models.Count('exam_students')
+        )['total_students'] or 0
