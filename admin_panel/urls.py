@@ -1,9 +1,7 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from admin_panel.questions.viewset import QuestionViewset
 
-from admin_panel.students.viewset import StudentViewset
 from admin_panel.viewset import (
     CustomAuthTokenView,
     EmployeeViewset,
@@ -12,9 +10,12 @@ from admin_panel.viewset import (
     BatchViewset,
     TopicViewset,
     OrganizationViewset,
+    QuestionViewset,
+    StudentViewset,
     ExamViewSet,
     ExamBatchViewSet,
     ExamStudentViewSet,
+    ExamEmployeeViewSet,
 )
 
 router = routers.DefaultRouter()
@@ -29,5 +30,6 @@ router.register(r"question", QuestionViewset, basename="question")
 router.register(r"exam", ExamViewSet, basename="exam")
 router.register(r"exam_batch", ExamBatchViewSet, basename="exam_batch")
 router.register(r"exam_student", ExamStudentViewSet, basename="exam_student")
+router.register(r"exam_employee", ExamEmployeeViewSet, basename="exam_employee")
 urlpatterns = [path("", include(router.urls))]
 urlpatterns += [path('api-token-auth/', CustomAuthTokenView.as_view())]

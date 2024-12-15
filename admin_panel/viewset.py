@@ -37,7 +37,7 @@ from .exams.viewset import (
 
 from .exam_batch.viewset import ExamBatchViewSet
 from .exam_batch_student.viewset import ExamStudentViewSet
-
+from .exam_employee.viewset import ExamEmployeeViewSet
 
 __all__ = [
     "StudentViewset",
@@ -52,4 +52,5 @@ __all__ = [
     "ExamViewSet",
     "ExamBatchViewSet",
     "ExamStudentViewSet",
+    "ExamEmployeeViewSet",
 ]
